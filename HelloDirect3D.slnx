@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="HelloDirect3D/HelloDirect3D.vcxproj" Id="43e86da0-0419-482a-8b22-a98dabde2a58" />
+</Solution>
