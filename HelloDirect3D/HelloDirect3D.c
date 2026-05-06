@@ -214,14 +214,15 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return (INT_PTR)FALSE;
 }
-
-
+//------------------------------------------------------------------------------------------------------
 BOOL InitializeDirect3D()
 {
     D3DDISPLAYMODE d3ddm;
     HRESULT hr;
     ZeroMemory(&d3dpp, sizeof(d3dpp));
     ZeroMemory(&d3ddm, sizeof(d3ddm));
+    ZeroMemory(&m_d3d9, sizeof(m_d3d9));
+    ZeroMemory(&m_d3d_Device, sizeof(m_d3d_Device));
     m_d3d9 = Direct3DCreate9(D3D_SDK_VERSION);
     if (m_d3d9 == NULL) return FALSE;
     hr = m_d3d9->lpVtbl->GetAdapterDisplayMode(m_d3d9, 0, &d3ddm);
@@ -242,7 +243,7 @@ BOOL InitializeDirect3D()
     if (FAILED(hr)) return FALSE;
     return TRUE;
 }
-
+//------------------------------------------------------------------------------------------------------
 void DestroyDirect3D()
 {
     if (m_d3d_Device != NULL)
@@ -258,7 +259,7 @@ void DestroyDirect3D()
     }
         
 }
-
+//------------------------------------------------------------------------------------------------------
 void RenderScene()
 {
     if (m_d3d9 == NULL) return;
